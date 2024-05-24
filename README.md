@@ -6,8 +6,14 @@
 
 This crate provides the [`Be`] (big-endian) and [`Le`] (little-endian) byte-order-aware numeric types.
 
+Unlike the popular [`byteorder`] crate, which focuses on the action of encoding and decoding numbers to and from byte streams, this crate focuses on the state of numbers.
+This is useful to create structs that contain fields of a specific endianness for interoperability, such as in virtio.
+In comparison to other crates that focus on state, this crate closely follows naming conventions from [`core::num`], has rich functionality, and extensive documentation of each method.
+
 [`Be`]: https://docs.rs/endian-num/latest/endian_num/struct.Be.html
 [`Le`]: https://docs.rs/endian-num/latest/endian_num/struct.Le.html
+[`byteorder`]: https://docs.rs/byteorder
+[`core::num`]: https://doc.rust-lang.org/stable/core/num/index.html
 
 The core API looks _roughly_ like this (correspondingly for `Be`):
 
