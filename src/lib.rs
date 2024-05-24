@@ -68,11 +68,11 @@
 //!
 //! # Related crates
 //!
-//! - [endian-type](https://crates.io/crates/endian-type)
-//! - [endian-type-rs](https://crates.io/crates/endian-type-rs) — Depends on `num`.
-//! - [endiantype](https://crates.io/crates/endiantype)
-//! - [nora_endian](https://crates.io/crates/nora_endian)
-//! - [simple_endian](https://crates.io/crates/simple_endian) — Also provides `f32`, `f64`, and `bool` types.
+//! - [endian-type](https://docs.rs/endian-type)
+//! - [endian-type-rs](https://docs.rs/endian-type-rs) — Depends on `num`.
+//! - [endiantype](https://docs.rs/endiantype)
+//! - [nora_endian](https://docs.rs/nora_endian)
+//! - [simple_endian](https://docs.rs/simple_endian) — Also provides `f32`, `f64`, and `bool` types.
 //! - [`zerocopy::byteorder`] — These types are [`Unaligned`](zerocopy::Unaligned), which makes them unsuitable for volatile memory operations.
 //!
 //! [`zerocopy::byteorder`]: https://docs.rs/zerocopy/0.7/zerocopy/byteorder/index.html
