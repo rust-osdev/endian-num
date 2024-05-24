@@ -2,11 +2,11 @@
 //!
 //! This crate provides the [`Be`] (big-endian) and [`Le`] (little-endian) byte-order-aware numeric types.
 //!
-//! The types aim to provide a similar API to other numeric types from [`core::num`], such as [`NonZero`], [`Saturating`], and [`Wrapping`].
+//! Unlike the popular [`byteorder`] crate, which focuses on the action of encoding and decoding numbers to and from byte streams, this crate focuses on the state of numbers.
+//! This is useful to create structs that contain fields of a specific endianness for interoperability, such as in virtio.
+//! In comparison to other crates that focus on state, this crate closely follows naming conventions from [`core::num`], has rich functionality, and extensive documentation of each method.
 //!
-//! [`NonZero`]: core::num::NonZero
-//! [`Saturating`]: core::num::Saturating
-//! [`Wrapping`]: core::num::Wrapping
+//! [`byteorder`]: https://docs.rs/byteorder
 //!
 //! The core API looks _roughly_ like this (correspondingly for `Be`):
 //!
