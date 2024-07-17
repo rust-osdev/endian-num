@@ -68,6 +68,8 @@
 //!
 //! # Related crates
 //!
+//! Several crates provide alternative approaches to byte-order-aware numeric types:
+//!
 //! - [endian-type](https://docs.rs/endian-type)
 //! - [endian-type-rs](https://docs.rs/endian-type-rs) — Depends on `num`.
 //! - [endiantype](https://docs.rs/endiantype)
