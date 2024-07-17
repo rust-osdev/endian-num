@@ -554,6 +554,27 @@ macro_rules! impl_sum_product {
 
 impl_sum_product! { Xe<i8> Xe<i16> Xe<i32> Xe<i64> Xe<i128> Xe<isize> Xe<u8> Xe<u16> Xe<u32> Xe<u64> Xe<u128> Xe<usize> }
 
+#[cfg(target_pointer_width = "16")]
+macro_rules! usize_macro {
+    ($macro:ident) => {
+        $macro!(u16)
+    };
+}
+
+#[cfg(target_pointer_width = "32")]
+macro_rules! usize_macro {
+    ($macro:ident) => {
+        $macro!(u32)
+    };
+}
+
+#[cfg(target_pointer_width = "64")]
+macro_rules! usize_macro {
+    ($macro:ident) => {
+        $macro!(u64)
+    };
+}
+
 #[rustfmt::skip]
 macro_rules! rot {
     (u8) => { 2 };
@@ -561,7 +582,7 @@ macro_rules! rot {
     (u32) => { 8 };
     (u64) => { 12 };
     (u128) => { 16 };
-    (usize) => { rot!(u64) };
+    (usize) => { usize_macro!(rot) };
     (i8) => { rot!(u8) };
     (i16) => { rot!(u16) };
     (i32) => { rot!(u32) };
@@ -577,7 +598,7 @@ macro_rules! rot_op {
     (u32) => { "0x10000b3" };
     (u64) => { "0xaa00000000006e1" };
     (u128) => { "0x13f40000000000000000000000004f76" };
-    (usize) => { rot_op!(u64) };
+    (usize) => { usize_macro!(rot_op) };
     (i8) => { "-0x7e" };
     (i16) => { "-0x5ffd" };
     (i32) => { rot_op!(u32) };
@@ -593,7 +614,7 @@ macro_rules! rot_result {
     (u32) => { "0xb301" };
     (u64) => { "0x6e10aa" };
     (u128) => { "0x4f7613f4" };
-    (usize) => { rot_result!(u64) };
+    (usize) => { usize_macro!(rot_result) };
     (i8) => { rot_result!(u8) };
     (i16) => { rot_result!(u16) };
     (i32) => { rot_result!(u32) };
@@ -609,7 +630,7 @@ macro_rules! swap_op {
     (u32) => { "0x12345678" };
     (u64) => { "0x1234567890123456" };
     (u128) => { "0x12345678901234567890123456789012" };
-    (usize) => { swap_op!(u64) };
+    (usize) => { usize_macro!(swap_op) };
     (i8) => { swap_op!(u8) };
     (i16) => { swap_op!(u16) };
     (i32) => { swap_op!(u32) };
@@ -625,7 +646,7 @@ macro_rules! swapped {
     (u32) => { "0x78563412" };
     (u64) => { "0x5634129078563412" };
     (u128) => { "0x12907856341290785634129078563412" };
-    (usize) => { swapped!(u64) };
+    (usize) => { usize_macro!(swapped) };
     (i8) => { swapped!(u8) };
     (i16) => { swapped!(u16) };
     (i32) => { swapped!(u32) };
@@ -641,7 +662,7 @@ macro_rules! reversed {
     (u32) => { "0x1e6a2c48" };
     (u64) => { "0x6a2c48091e6a2c48" };
     (u128) => { "0x48091e6a2c48091e6a2c48091e6a2c48" };
-    (usize) => { reversed!(u64) };
+    (usize) => { usize_macro!(reversed) };
     (i8) => { reversed!(u8) };
     (i16) => { reversed!(u16) };
     (i32) => { reversed!(u32) };
@@ -656,7 +677,7 @@ macro_rules! be_bytes {
     (u32) => { "[0x12, 0x34, 0x56, 0x78]" };
     (u64) => { "[0x12, 0x34, 0x56, 0x78, 0x90, 0x12, 0x34, 0x56]" };
     (u128) => { "[0x12, 0x34, 0x56, 0x78, 0x90, 0x12, 0x34, 0x56, 0x78, 0x90, 0x12, 0x34, 0x56, 0x78, 0x90, 0x12]" };
-    (usize) => { be_bytes!(u64) };
+    (usize) => { usize_macro!(be_bytes) };
     (i8) => { be_bytes!(u8) };
     (i16) => { be_bytes!(u16) };
     (i32) => { be_bytes!(u32) };
@@ -671,7 +692,7 @@ macro_rules! le_bytes {
     (u32) => { "[0x78, 0x56, 0x34, 0x12]" };
     (u64) => { "[0x56, 0x34, 0x12, 0x90, 0x78, 0x56, 0x34, 0x12]" };
     (u128) => { "[0x12, 0x90, 0x78, 0x56, 0x34, 0x12, 0x90, 0x78, 0x56, 0x34, 0x12, 0x90, 0x78, 0x56, 0x34, 0x12]" };
-    (usize) => { le_bytes!(u64) };
+    (usize) => { usize_macro!(le_bytes) };
     (i8) => { le_bytes!(u8) };
     (i16) => { le_bytes!(u16) };
     (i32) => { le_bytes!(u32) };
