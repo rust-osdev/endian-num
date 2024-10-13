@@ -27,7 +27,7 @@ dependencies = [
 
 [[package]]
 name = "endian-num"
-version = "0.1.2"
+version = "0.2.0"
 dependencies = [
  "bitflags",
  "bytemuck",
