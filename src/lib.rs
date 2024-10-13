@@ -54,7 +54,7 @@
 //! - [`bitflags`] — `Be` and `Le` implement [`Bits`], [`ParseHex`], and [`WriteHex`].
 //! - [`bytemuck`] — `Be` and `Le` implement [`Zeroable`] and [`Pod`].
 //! - `linux-types` — Type aliases like in [`linux/types.h`], such as [`le32`].
-//! - [`zerocopy`] — `Be` and `Le` implement [`FromZeroes`], [`FromBytes`], and [`AsBytes`].
+//! - [`zerocopy`] — `Be` and `Le` implement [`KnownLayout`], [`Immutable`], [`FromBytes`], and [`IntoBytes`].
 //!
 //! [`Bits`]: bitflags::Bits
 //! [`ParseHex`]: bitflags::parser::ParseHex
@@ -62,9 +62,10 @@
 //! [`Zeroable`]: bytemuck::Zeroable
 //! [`Pod`]: bytemuck::Pod
 //! [`linux/types.h`]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/include/uapi/linux/types.h?h=v6.9#n36
-//! [`FromZeroes`]: zerocopy::FromZeroes
+//! [`KnownLayout`]: zerocopy::KnownLayout
+//! [`Immutable`]: zerocopy::Immutable
 //! [`FromBytes`]: zerocopy::FromBytes
-//! [`AsBytes`]: zerocopy::AsBytes
+//! [`IntoBytes`]: zerocopy::IntoBytes
 //!
 //! # Related crates
 //!
@@ -118,9 +119,10 @@ use core::{fmt, mem};
 #[cfg_attr(
     feature = "zerocopy",
     derive(
-        zerocopy_derive::FromZeroes,
+        zerocopy_derive::KnownLayout,
+        zerocopy_derive::Immutable,
         zerocopy_derive::FromBytes,
-        zerocopy_derive::AsBytes
+        zerocopy_derive::IntoBytes,
     )
 )]
 #[derive(Default, Hash, PartialEq, Eq, Clone, Copy)]
@@ -149,9 +151,10 @@ pub struct Be<T>(pub T);
 #[cfg_attr(
     feature = "zerocopy",
     derive(
-        zerocopy_derive::FromZeroes,
+        zerocopy_derive::KnownLayout,
+        zerocopy_derive::Immutable,
         zerocopy_derive::FromBytes,
-        zerocopy_derive::AsBytes
+        zerocopy_derive::IntoBytes,
     )
 )]
 #[derive(Default, Hash, PartialEq, Eq, Clone, Copy)]

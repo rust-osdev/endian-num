@@ -17,8 +17,8 @@ rustdoc-args = ["--cfg", "docsrs"]
 bitflags = { version = "2", optional = true }
 bytemuck = { version = "1", optional = true }
 bytemuck_derive = { version = "1", optional = true }
-zerocopy = { version = "0.7", optional = true, default-features = false }
-zerocopy-derive = { version = "0.7", optional = true }
+zerocopy = { version = "0.8", optional = true, default-features = false }
+zerocopy-derive = { version = "0.8", optional = true }
 
 [features]
 bitflags = ["dep:bitflags"]
