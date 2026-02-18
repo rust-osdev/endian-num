@@ -3,6 +3,7 @@ name = "endian-num"
 version = "0.2.0"
 authors = ["Martin Kröning <mkroening@posteo.net>"]
 edition = "2021"
+rust-version = "1.71"
 description = "Byte-order-aware numeric types."
 repository = "https://github.com/rust-osdev/endian-num"
 license = "MIT OR Apache-2.0"
