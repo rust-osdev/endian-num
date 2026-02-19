@@ -81,7 +81,7 @@
 //! [`zerocopy::byteorder`]: https://docs.rs/zerocopy/0.7/zerocopy/byteorder/index.html
 
 #![no_std]
-#![cfg_attr(docsrs, feature(doc_auto_cfg))]
+#![cfg_attr(docsrs, feature(doc_cfg))]
 #![warn(missing_docs)]
 #![warn(rust_2018_idioms)]
 
